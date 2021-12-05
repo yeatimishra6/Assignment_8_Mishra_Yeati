@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Assignment_8_Mishra_Yeati.Models;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore.Migrations;
+
 
 namespace Assignment_8_Mishra_Yeati
 {
@@ -22,22 +24,18 @@ namespace Assignment_8_Mishra_Yeati
         {
             services.AddControllers();
 
-            services.AddDbContext<TodoContext>(opt =>
-                                               opt.UseInMemoryDatabase("TodoList"));
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TodoApi", Version = "v1" });
-            });
+            services.AddDbContext<FinalProjectData>(options => options.UseSqlServer(Configuration.GetConnectionString("FinalProjectData")));
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, FinalProjectData context)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoApi v1"));
+
             }
+
+           context.Database.Migrate();
 
             app.UseHttpsRedirection();
             app.UseRouting();
