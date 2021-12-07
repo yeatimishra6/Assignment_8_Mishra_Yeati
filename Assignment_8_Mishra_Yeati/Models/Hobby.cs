@@ -9,7 +9,7 @@ namespace Assignment_8_Mishra_Yeati.Models
     {
         public string favSport {get; set;}
         public string freeTimeActivity { get; set; }
-        public string Id { get; set; }
+        public int id { get; set; }
 
         public string favMovie { get; set; }
 

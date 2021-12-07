@@ -19,17 +19,17 @@ namespace Assignment_8_Mishra_Yeati.Models
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Color>().HasData(
-                new Color { Id = 1, schoolColor = "Blue", memberCommonFavColor = "Yellow", numberOfColorInSchoolLogo = 6, peopleInTheTeam = 8 },
-                new Color { Id = 2, schoolColor = "Red", memberCommonFavColor = "Blue", numberOfColorInSchoolLogo = 3, peopleInTheTeam = 2 }
+                new Color { id = 1, schoolColor = "Blue", memberCommonFavColor = "Yellow", numberOfColorInSchoolLogo = 6, peopleInTheTeam = 8 },
+                new Color { id = 2, schoolColor = "Red", memberCommonFavColor = "Blue", numberOfColorInSchoolLogo = 3, peopleInTheTeam = 2 }
                 );
             builder.Entity<Hobby>().HasData(
-                new Hobby { }
+                new Hobby { id = 4, favMovie = "muji", favPlaceToTravel = "Nepal", favSport = "Soccer", freeTimeActivity = "Drinking with friends"}
                 );
             builder.Entity<Favoritebreakfastfoods>().HasData(
-                new Favoritebreakfastfoods { }
+                new Favoritebreakfastfoods { id = 5, favBreakfastPlace = "Ihop", pancakeOrWaffle = "Waffle", typeOfDrink = "Coke", typeOfEggsYouLike = "raw"}
                 );
             builder.Entity<Info>().HasData(
-                new Info { }
+                new Info { id = 7, birthDay = "Fab-12", collegeProgram = "IT", collegeYear = "Senior", teamName = "YAAAAAAA"}
 
                 );
 

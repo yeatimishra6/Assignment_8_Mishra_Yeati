@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Assignment_8_Mishra_Yeati.Models;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore.Migrations;
-
+using Assignment_8_Mishra_Yeati.Data;
 
 namespace Assignment_8_Mishra_Yeati
 {
@@ -23,8 +23,10 @@ namespace Assignment_8_Mishra_Yeati
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSwaggerDocument();
 
             services.AddDbContext<FinalProjectData>(options => options.UseSqlServer(Configuration.GetConnectionString("FinalProjectData")));
+            services.AddScoped<IFinalProjectDataDAO, FinalProjectContextDAO>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, FinalProjectData context)
@@ -34,7 +36,8 @@ namespace Assignment_8_Mishra_Yeati
                 app.UseDeveloperExceptionPage();
 
             }
-
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
            context.Database.Migrate();
 
             app.UseHttpsRedirection();

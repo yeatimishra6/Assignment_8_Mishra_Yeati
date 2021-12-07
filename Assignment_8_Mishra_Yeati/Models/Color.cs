@@ -10,7 +10,7 @@ namespace Assignment_8_Mishra_Yeati.Models
         public string schoolColor { get; set; }
         public string memberCommonFavColor { get; set; }
         
-        public int Id { get; set; }
+        public int id { get; set; }
 
         public int numberOfColorInSchoolLogo { get; set; }
 

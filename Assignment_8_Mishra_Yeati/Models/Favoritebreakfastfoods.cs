@@ -10,7 +10,7 @@ namespace Assignment_8_Mishra_Yeati.Models
         public string typeOfEggsYouLike { get; set; }
         public string pancakeOrWaffle { get; set; }
         public string typeOfDrink { get; set; }
-        public int Id { get; set; }
+        public int id { get; set; }
 
         public string favBreakfastPlace { get; set; }
 

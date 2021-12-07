@@ -12,6 +12,6 @@ namespace Assignment_8_Mishra_Yeati.Models
         public string collegeProgram { get; set; }
         public string collegeYear { get; set; }
 
-        public double Id { get; set; }
+        public double id { get; set; }
     }
 }
